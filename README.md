@@ -23,6 +23,6 @@ It is possible to access the VM with:
 
 # Performance Considerations
 
-The environment uses automatic [copy-on-write]() images to provide seamless integration with [Docker layered file system](). The mechanism mentioned above permits to obtain acceptable performance when running multiple VMs without hogging the storage.
+The environment uses automatic [copy-on-write](https://en.wikibooks.org/wiki/QEMU/Images#Copy_on_write) images to provide seamless integration with [Docker layered file system](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/). The mechanism mentioned above permits to obtain acceptable performance when running multiple VMs without hogging the storage.
 
 Furthermore, this container uses hardware virtualization technologies, like VT-X or AMD-V, to achieve almost native performance.
