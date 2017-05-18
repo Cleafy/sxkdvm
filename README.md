@@ -9,7 +9,7 @@ This project permits to run an OSX virtual machine (KVM) inside a Docker contain
 
 To execute the container, you need a working `mac_hdd-backing.img`. You can obtain one with [OSX-KVM project](https://github.com/kholia/OSX-KVM). After that, you can mount the backing storage with the Docker command line and pass the KVM device.
 
-    docker --device /dev/kvm:/dev/kvm -v $PWD/backing:/backing -p 2222:2222 -p 5900:5900 -p 5800:5800 run cleafy/sxkdvm
+    docker run --device /dev/kvm:/dev/kvm -v $PWD/backing:/backing -p 2222:2222 -p 5900:5900 -p 5800:5800 cleafy/sxkdvm
 
 To persist the change add export the snapshot storage somewhere with `-v $PWD/snapshot:/snapshot`.
 
