@@ -19,7 +19,7 @@
 BACKING_DIR=/backing
 SNAPSHOT_DIR=/snapshot
 mkdir -p $BACKING_DIR $SNAPSHOT_DIR
-[ ! -f $BACKING_DIR/mac_hdd.img ] && qemu-img create -f qcow2 -b $BACKING_DIR/mac_hdd-backing.img $SNAPSHOT_DIR/mac_hdd.img
+[ ! -f $SNAPSHOT_DIR/mac_hdd.img ] && qemu-img create -f qcow2 -b $BACKING_DIR/mac_hdd-backing.img $SNAPSHOT_DIR/mac_hdd.img
 
 exec qemu-system-x86_64 -enable-kvm -m 8192 -cpu core2duo,kvm=off \
 	  -machine pc-q35-2.4 \
