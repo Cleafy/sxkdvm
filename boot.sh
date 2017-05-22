@@ -21,7 +21,11 @@ SNAPSHOT_DIR=/snapshot
 mkdir -p $BACKING_DIR $SNAPSHOT_DIR
 [ ! -f $SNAPSHOT_DIR/mac_hdd.img ] && qemu-img create -f qcow2 -b $BACKING_DIR/mac_hdd-backing.img $SNAPSHOT_DIR/mac_hdd.img
 
-exec qemu-system-x86_64 -enable-kvm -m 8192 -cpu core2duo,kvm=off \
+if [ -z ${NO_KVM+x} ]; then
+	KVM_ARGS='-enable-kvm'
+fi
+
+exec qemu-system-x86_64 $KVM_ARGS -m 8192 -cpu core2duo,kvm=off \
 	  -machine pc-q35-2.4 \
 	  -smp 4,cores=2 \
 	  -usb -device usb-kbd -device usb-tablet \
