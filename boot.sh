@@ -21,7 +21,7 @@ SNAPSHOT_DIR=/snapshot
 mkdir -p $BACKING_DIR $SNAPSHOT_DIR
 [ ! -f $SNAPSHOT_DIR/mac_hdd.img ] && qemu-img create -f qcow2 -b $BACKING_DIR/mac_hdd-backing.img $SNAPSHOT_DIR/mac_hdd.img
 
-if [ -z ${NO_KVM+x} ]; then
+if [ -c /dev/kvm ]; then
 	KVM_ARGS='-enable-kvm'
 fi
 
