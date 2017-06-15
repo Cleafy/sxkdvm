@@ -11,13 +11,13 @@ To execute the container, you need a working `mac_hdd-backing.img`. You can obta
 
     docker run --device /dev/kvm:/dev/kvm -v $PWD/backing:/backing -p 2222:2222 -p 5900:5900 -p 5800:5800 cleafy/sxkdvm
 
-To persist the change add export the snapshot storage somewhere with `-v $PWD/snapshot:/snapshot`.
+To persist the changes export the snapshot storage somewhere with `-v $PWD/snapshot:/snapshot`.
 
 # Exposed Ports
 
 This VM exposes an ssh connection at `2222` and a VNC server at `5900,5800` ports.
 
-It is possible to access the VM with:
+It is possible to access the VM with the following command:
 
     ssh appleuser@localhost -p 2222
 
